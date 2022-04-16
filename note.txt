@@ -1,0 +1,7 @@
+laravel
+
+===========================================================
+path mvc
+m = \app\Models\User.php
+v = \resources\views\welcome.blade.php (kenapa ada .blade nya karena ini pakai engine view nya laravel)
+c = \app\Http\Controllers\Controller.php
