@@ -1,13 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Azizan blog | posts</title>
-    <link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-    <h1>Posts</h1>
-</body>
-</html>
+@extends('layouts.main')
+
+@section('container')
+    
+@foreach ($posts as $item)
+
+<article class="mb-5 mt-4">
+    <h2>
+        <a href="/posts/{{ $item["slug"] }}">{{ $item["title"] }}</a>
+    </h2>
+    <h5>By: {{ $item["author"] }}</h5>
+    <p>{{ $item["body"] }}</p>
+</article>
+@endforeach
+    
+@endsection
