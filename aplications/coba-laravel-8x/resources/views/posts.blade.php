@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
 @section('container')
-    
+
+<h1>Data Post</h1>
+
 @foreach ($posts as $item)
 
 <article class="mb-5 mt-4">
