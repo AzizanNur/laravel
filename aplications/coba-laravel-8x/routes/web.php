@@ -3,6 +3,7 @@
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Providers\RouteServiceProvider;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,18 +30,7 @@ Route::get('/about', function () {
     ]);
 });
 
-Route::get('/blog', function () {
-    return view('posts', [
-        "title" => "posts",
-        "posts" => Post::all()
-    ]);
-});
+Route::get('/blog', [PostController::class, 'index']);
 
 //halaman singel post
-Route::get('posts/{slug}', function($slug){
-
-    return view('post', [
-        "title" => 'post',
-        'post' => Post::find($slug),
-    ]);
-});
+Route::get('posts/{slug}', [PostController::class, 'show']);
