@@ -12,5 +12,9 @@ class Post extends Model
     //if meet MassAssignmentException
     // protected $fillable = ['title', 'exceprt', 'body']; //this to setting field allow to edit
     protected $guarded = ['id']; //this opposite fillable, so this id to be guard and not allow to edit
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
 }
 

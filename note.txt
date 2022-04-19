@@ -46,7 +46,32 @@ make model with cli
 - php artisan migrate:fresh = to migrate all 
 
 Post::pluck('title') = to show just title in mysql
-Post::where('title', 'judul ketiga', 'judul ketiga berubah')
+Post::where('title', 'judul ketiga', 'judul ketiga berubah')->update(['excerpt' => 'excerpt post 3 berubah'])
 ============================================
+
+Route model binding
+
+- to protected routes
+
+===========================================
+
+Post::create([
+'title' => 'Judul Pertama',
+'category_id' => '1',
+'excerpt' => 'ipsum dolor sit amet consectetur adipisicing elit. Quod deserunt, quibusdam amet error',
+'slug' => 'judul-pertama',
+'body' => '<p> ipsum dolor sit amet consectetur adipisicing elit. Quod deserunt, quibusdam amet error doloremque sapiente pariatur nobis vitae ullam quidem assumenda reprehenderit libero, officiis velit minus consequatur perspiciatis explicabo repudiandae! Sit maiores distinctio recusandae</p><p>veritatis consequuntur nulla itaque animi voluptates necessitatibus quos, corrupti saepe! Facilis eligendi suscipit, odio temporibus quas culpa voluptates vitae, hic numquam quia veniam harum vel! Ipsa sit odit molestias, iste asperiores voluptatibus officia suscipit id exercitationem. Eius deleniti fuga, repellat officia sequi, itaque facilis rerum temporibus ipsum natus sunt totam praesentium tempore unde laudantium quas beatae at ducimus. Eos iste ipsum quas vitae dolore ab, qui illo maxime quod dolor officiis voluptas similique necessitatibus. Recusandae nam sed cum alias omnis dolore tenetur, distinctio nesciunt iusto eius?</p>'
+]);
+
+Category::create([
+'name' => 'Personal',
+'slug' => 'personal'
+])
+
+==========================================
+
+belongsTo = many to one
+hasMany = one to many
+
 
 
