@@ -12,3 +12,41 @@ Blade templating engine
 - sebuah template engine yang ada di laravel, bisa menggunakan php, yg akan dikompel ke php
 - ex sintax= menampilkan data variabel dengan sintax {{nama}}
 - fitur ini hanya bisa dipakai jika ada file yang ada .blade.php
+
+==========================================================
+
+use tinker to interaction for laravel us
+ex: php artisan tinker 
+if after enter, your is connected now with laravel
+
+- bcrypt is sintax in laravel for parse data to encripted, ex, to fill password and key
+how to use, this to used
+- php artisan tinker
+- $user = new User
+- $user->name = 'azizan'
+- $user->email = 'azizan@gmail.com'
+- $user-> password = bcrypt('12345')
+- $user->save();
+
+to see all
+$user->all()
+
+and this return is collection data
+
+$user->findOrFail(20) => to show this error, where your query is not found
+
+=========================================
+
+make model with cli
+
+- open terminal
+- enter to directory laravel
+- php artisan make:model
+- php artisan migrate = to migrate once on update
+- php artisan migrate:fresh = to migrate all 
+
+Post::pluck('title') = to show just title in mysql
+Post::where('title', 'judul ketiga', 'judul ketiga berubah')
+============================================
+
+
