@@ -8,7 +8,7 @@
 
 <article class="mb-5 mt-4">
     <h2>
-        <a href="/posts/{{ $item->id }}">{{ $item->title }}</a>
+        <a href="/posts/{{ $item->slug }}">{{ $item->title }}</a>
     </h2>
     <p>{{ $item->excerpt }}</p>
 </article>
