@@ -43,3 +43,9 @@ Route::get('/categories/{category:slug}', function(Category $category){
         'category' => $category->name,
     ]);
 });
+Route::get('/categories/', function(){
+    return view('categories', [
+        'title' => 'Categories',
+        'categories' => Category::all(),
+    ]);
+});
