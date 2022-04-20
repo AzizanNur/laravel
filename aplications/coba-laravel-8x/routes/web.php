@@ -1,11 +1,13 @@
 <?php
 
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\User;
+
 use Illuminate\Support\Facades\Route;
 use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\PostController;
 
-use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -47,5 +49,20 @@ Route::get('/categories/', function(){
     return view('categories', [
         'title' => 'Categories',
         'categories' => Category::all(),
+    ]);
+});
+
+Route::get('/users/', function(){
+    return view('users', [
+        'title' => 'Users',
+        'users' => User::all()
+    ]);
+});
+
+Route::get('/user/{user:slug}', function(User $user){
+    return view('user', [
+        'title' => $user->name,
+        'posts' => $user->posts,
+        'category' => $user->name,
     ]);
 });

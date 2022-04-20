@@ -54,24 +54,45 @@ Route model binding
 - to protected routes
 
 ===========================================
+data dummy
+User::create([
+	'name'=>'azizan',
+	'email'=>'azizan@gmail.com',
+	'password'=>bcrypt('12345')
+]);
+
 
 Post::create([
 'title' => 'Judul Pertama',
-'category_id' => '1',
+'category_id' => 1,
+'user_id' => 1,
 'excerpt' => 'ipsum dolor sit amet consectetur adipisicing elit. Quod deserunt, quibusdam amet error',
 'slug' => 'judul-pertama',
 'body' => '<p> ipsum dolor sit amet consectetur adipisicing elit. Quod deserunt, quibusdam amet error doloremque sapiente pariatur nobis vitae ullam quidem assumenda reprehenderit libero, officiis velit minus consequatur perspiciatis explicabo repudiandae! Sit maiores distinctio recusandae</p><p>veritatis consequuntur nulla itaque animi voluptates necessitatibus quos, corrupti saepe! Facilis eligendi suscipit, odio temporibus quas culpa voluptates vitae, hic numquam quia veniam harum vel! Ipsa sit odit molestias, iste asperiores voluptatibus officia suscipit id exercitationem. Eius deleniti fuga, repellat officia sequi, itaque facilis rerum temporibus ipsum natus sunt totam praesentium tempore unde laudantium quas beatae at ducimus. Eos iste ipsum quas vitae dolore ab, qui illo maxime quod dolor officiis voluptas similique necessitatibus. Recusandae nam sed cum alias omnis dolore tenetur, distinctio nesciunt iusto eius?</p>'
 ]);
 
 Category::create([
-'name' => 'Personal',
-'slug' => 'personal'
+'name' => 'Web Programing',
+'slug' => 'web-programming'
 ])
 
 ==========================================
 
 belongsTo = many to one
 hasMany = one to many
+
+==========================================
+
+db seed
+
+aplications\coba-laravel-8x\database\seeders\DatabaseSeeder.php
+activated this line -> \App\Models\User::factory(10)->create();
+
+php artisan db:seed -> to add data dummy can this add to database us
+php artisan migrate:fresh --seed -> this 2 function's run, first run migrate to fresh migrate, and second's to fill data dummy into database
+
+
+
 
 
 

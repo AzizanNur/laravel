@@ -2,12 +2,12 @@
 
 @section('container')
 
-<h1>Data <a href="/categories/">Category</a> {{ $title }}</h1>
+<h1>Data <a class='text-decoration-none' href="/categories/">Category</a> {{ $title }}</h1>
 
 @forelse ($posts as $item)
     <article class="mb-5 mt-4">
         <h2>
-            <a href="/posts/{{ $item->slug }}">{{ $item->title }}</a>
+            <a class='text-decoration-none' href="/posts/{{ $item->slug }}">{{ $item->title }}</a>
         </h2>
         <p>{{ $item->excerpt }}</p>
     </article>
