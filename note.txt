@@ -8,7 +8,7 @@ c = \app\Http\Controllers\Controller.php
 
 =========================================================
 
-Blade templating engine
+Blade is templating engine
 - sebuah template engine yang ada di laravel, bisa menggunakan php, yg akan dikompel ke php
 - ex sintax= menampilkan data variabel dengan sintax {{nama}}
 - fitur ini hanya bisa dipakai jika ada file yang ada .blade.php
