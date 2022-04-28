@@ -67,8 +67,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Category::create([
-        'name' => 'Programing',
-        'slug' => 'programing'
+        'name' => 'Design Web',
+        'slug' => 'desing-web'
         ]);
     }
 }

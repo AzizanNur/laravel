@@ -32,35 +32,35 @@ Route::get('/about', function () {
         "email" => "azizan@kly.id",
         "image" => "azizan.png",
     ]);
-});
+}); 
 
 Route::get('/blog', [PostController::class, 'index']);
 
 //halaman singel post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories/{category:slug}', function(Category $category){
-    return view('category', [
+    return view('posts', [
         'title' => $category->name,
         'posts' => $category->posts,
         'category' => $category->name,
     ]);
 });
 Route::get('/categories/', function(){
-    return view('categories', [
+    return view('posts', [
         'title' => 'Categories',
-        'categories' => Category::all(),
+        'posts' => Category::all(),
     ]);
 });
 
 Route::get('/users/', function(){
-    return view('users', [
+    return view('posts', [
         'title' => 'Users',
-        'users' => User::all()
+        'posts' => User::all()
     ]);
 });
 
 Route::get('/user/{user:slug}', function(User $user){
-    return view('user', [
+    return view('posts', [
         'title' => $user->name,
         'posts' => $user->posts,
         'category' => $user->name,
