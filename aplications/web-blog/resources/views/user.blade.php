@@ -2,11 +2,11 @@
 @extends('layouts.main')
 
 @section('container')
-    <h1>Ini data <a href="/users/">penulis</a> {{ $title }}</h1>
+    <h1>Ini data penulis {{ $title }}</h1>
     @forelse ($posts as $item)
         <article>
             <ul>
-                <li><a class='text-decoration-none' href="/posts/{{ $item->slug }}">{{ $item->title }}</a></li>
+                <li><a class='text-decoration-none' href="/posts/{{ $item->slug }}">{{ $item->name }}</a></li>
             </ul>    
         </article>
     @empty

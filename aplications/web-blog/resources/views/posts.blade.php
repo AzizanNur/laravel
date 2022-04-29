@@ -2,7 +2,7 @@
 
 @section('container')
 
-<h1>Data Post</h1>
+<h1>{{ $title }}</h1>
 
 @foreach ($posts as $item)
 

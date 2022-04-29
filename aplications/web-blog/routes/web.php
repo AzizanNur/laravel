@@ -38,22 +38,22 @@ Route::get('/blog', [PostController::class, 'index']);
 
 //halaman singel post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
+
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
-        'title' => $category->name,
+        'title' => "Post By Category: $category->name",
         'posts' => $category->posts,
-        'category' => $category->name,
     ]);
 });
 Route::get('/categories/', function(){
-    return view('posts', [
-        'title' => 'Categories',
+    return view('user', [
+        'title' => 'Post By Categories',
         'posts' => Category::all(),
     ]);
 });
 
-Route::get('/users/', function(){
-    return view('posts', [
+Route::get('/user/', function(){
+    return view('user', [
         'title' => 'Users',
         'posts' => User::all()
     ]);
@@ -61,8 +61,7 @@ Route::get('/users/', function(){
 
 Route::get('/user/{user:slug}', function(User $user){
     return view('posts', [
-        'title' => $user->name,
+        'title' => "Post By Author: $user->name",
         'posts' => $user->posts,
-        'category' => $user->name,
     ]);
 });
