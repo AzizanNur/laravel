@@ -42,7 +42,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
         'title' => "Post By Category: $category->name",
-        'posts' => $category->posts,
+        'posts' => $category->posts->load('user', 'category'), //ini menggunakan lazy eager loading,
     ]);
 });
 Route::get('/categories/', function(){
@@ -62,6 +62,6 @@ Route::get('/user/', function(){
 Route::get('/user/{user:slug}', function(User $user){
     return view('posts', [
         'title' => "Post By Author: $user->name",
-        'posts' => $user->posts,
+        'posts' => $user->posts->load('user', 'category'), //ini menggunakan lazy eager loading
     ]);
 });

@@ -99,3 +99,11 @@ php artisan migrate:fresh --seed -> this 2 function's run, first run migrate to 
 
 cara membuat factory
 php artisan make:factory PostFactory
+
+====================================
+N + 1 problem
+- he N+1 query problem happens when your code executes N additional query statements to fetch the same data that could have been retrieved when executing the primary query.
+to use this issue is, you must install library ini laravel and broser,
+in laravel install 'composer require itsgoingd/clockwork'
+then use add-ons in browser search "Clockwork" and then install
+===================================
