@@ -22,12 +22,14 @@ use App\Http\Controllers\PostController;
 Route::get('/', function () {
     return view('home', [
         "title" => "home",
+        "active" => 'home',
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "about",
+        "active" => 'about',
         "name" => "azizan nur rohman",
         "email" => "azizan@kly.id",
         "image" => "azizan.png",
@@ -42,6 +44,7 @@ Route::get('posts/{post:slug}', [PostController::class, 'show']);
 Route::get('/categories/{category:slug}', function(Category $category){
     return view('posts', [
         'title' => "Post By Category: $category->name",
+        "active" => 'categories',
         'posts' => $category->posts->load('user', 'category'), //ini menggunakan lazy eager loading,
     ]);
 });
@@ -49,6 +52,7 @@ Route::get('/categories/', function(){
     return view('user', [
         'title' => 'Post By Categories',
         'posts' => Category::all(),
+        "active" => 'categories',
     ]);
 });
 

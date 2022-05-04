@@ -26,10 +26,15 @@
         @foreach ($posts->skip(1) as $item)
         <div class="col-md-4 mb-3">
             <div class="card">
+                <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0,0,0,0.7)">
+                    <a href="/categories/{{ $item->category->slug }}" class="text-decoration-none text-white">
+                        {{ $item->category->name }}
+                    </a>    
+                </div>
                 <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="">
                 <div class="card-body">
                   <h5 class="card-title">{{ $item->title }}</h5>
-                  <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> in <a class='text-decoration-none' href="/categories/{{ $item->category->slug }}">{{ $item->category->name }}</a></p>
+                  <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> {{ $item->created_at->diffForhumans() }}</p>
                   <p class="card-text">{{ $item->excerpt }}</p>
                   <a href="/posts/{{ $item->slug }}" class="btn btn-primary">Read More</a>
                 </div>

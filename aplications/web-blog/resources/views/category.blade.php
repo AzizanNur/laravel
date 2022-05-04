@@ -7,7 +7,7 @@
 @forelse ($posts as $item)
     <article class="mb-5 mt-4">
         <h2>
-            <a class='text-decoration-none' href="/posts/{{ $item->slug }}">{{ $item->title }}</a>
+            <a class='text-decoration-none' href="/categories/{{ $item->slug }}">{{ $item->title }}</a>
         </h2>
         <p>{{ $item->excerpt }}</p>
     </article>

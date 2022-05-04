@@ -59,7 +59,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         User::factory(3)->create();
-        Post::factory(10)->create();
+        Post::factory(20)->create();
 
         Category::create([
         'name' => 'Web Programing',
@@ -70,5 +70,10 @@ class DatabaseSeeder extends Seeder
         'name' => 'Design Web',
         'slug' => 'desing-web'
         ]);
+
+        Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal'
+            ]);
     }
 }
