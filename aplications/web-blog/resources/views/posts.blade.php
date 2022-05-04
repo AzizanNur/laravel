@@ -6,11 +6,14 @@
 
 @if ($posts->count())
   <div class="card mb-3">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <img src="https://source.unsplash.com/1200x400?{{ $posts[0]->category->name }}" class="card-img-top" alt="">
+    <div class="card-body text-center">
+      <h5 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h5>
+      <small class="text-muted">
+      <p>By. <a class='text-decoration-none' href="/user/{{ $posts[0]->user->slug }}">{{ $posts[0]->user->name }}</a> in <a class='text-decoration-none' href="/categories/{{ $posts[0]->category->slug }}">{{ $posts[0]->category->name }}</a> {{ $posts[0]->created_at->diffForhumans() }}</p> 
+      </small>
+      <p class="card-text">{{ $posts[0]->excerpt }}</p>   
+      <a class='text-decoration-none btn btn-primary' href="/posts/{{ $posts[0]->slug }}">Read More</a>
     </div>
   </div>
 @else
@@ -18,16 +21,22 @@
 @endif
 
 
-@foreach ($posts as $item)
+<div class="container">
+    <div class="row">
+        @foreach ($posts->skip(1) as $item)
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="">
+                <div class="card-body">
+                  <h5 class="card-title">{{ $item->title }}</h5>
+                  <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> in <a class='text-decoration-none' href="/categories/{{ $item->category->slug }}">{{ $item->category->name }}</a></p>
+                  <p class="card-text">{{ $item->excerpt }}</p>
+                  <a href="/posts/{{ $item->slug }}" class="btn btn-primary">Read More</a>
+                </div>
+              </div>
+        </div>
+        @endforeach
+    </div>
+</div>
 
-<article class="mb-5 mt-4 border-bottom pb-4">
-    <h2>
-        <a class='text-decoration-none' href="/posts/{{ $item->slug }}">{{ $item->title }}</a>
-    </h2>
-    <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> in <a class='text-decoration-none' href="/categories/{{ $item->category->slug }}">{{ $item->category->name }}</a></p>
-    <p>{{ $item->excerpt }}</p>
-    <a class='text-decoration-none' href="/posts/{{ $item->slug }}">Read More...</a>
-</article>
-@endforeach
-    
 @endsection
