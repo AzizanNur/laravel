@@ -11,8 +11,8 @@ class PostController extends Controller
         return view('posts', [
             "title" => "Data Posts",
             // "posts" => Post::all() //this is collection datas
-            "posts" => Post::with(['user', 'category'])->latest()->get() //this to show latest post and user eager load
-        ]);
+            "posts" => Post::latest()->get() //this to show latest post and user eager load
+        ]); 
     }
 
     public function show(Post $post){
