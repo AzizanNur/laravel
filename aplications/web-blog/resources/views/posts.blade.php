@@ -7,6 +7,11 @@
 <div class="row justify-content-center mb-3">
   <div class="col-md-6">
     <form action="/blog">
+
+      @if (request('category'))
+        <input type="hidden" name="category" value="{{ request('category') }}">          
+      @endif
+
       <div class="input-group mb-3">
         <input type="text" value="{{ request('search') }}" class="form-control" placeholder="Search" aria-label="Recipient's username" name="search">
         <button class="btn btn-danger" type="submit">Seach</button>
@@ -21,7 +26,9 @@
     <div class="card-body text-center">
       <h5 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h5>
       <small class="text-muted">
-      <p>By. <a class='text-decoration-none' href="/user/{{ $posts[0]->user->slug }}">{{ $posts[0]->user->name }}</a> in <a class='text-decoration-none' href="/categories/{{ $posts[0]->category->slug }}">{{ $posts[0]->category->name }}</a> {{ $posts[0]->created_at->diffForhumans() }}</p> 
+      <p>By. <a class='text-decoration-none' href="/user/{{ $posts[0]->user->slug }}">{{ $posts[0]->user->name }}</a> 
+        in <a class='text-decoration-none' href="/blog?category={{ $posts[0]->category->slug }}">{{ $posts[0]->category->name }}</a> 
+        {{ $posts[0]->created_at->diffForhumans() }}</p> 
       </small>
       <p class="card-text">{{ $posts[0]->excerpt }}</p>   
       <a class='text-decoration-none btn btn-primary' href="/posts/{{ $posts[0]->slug }}">Read More</a>
@@ -34,7 +41,7 @@
           <div class="col-md-4 mb-3">
               <div class="card">
                   <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0,0,0,0.7)">
-                      <a href="/categories/{{ $item->category->slug }}" class="text-decoration-none text-white">
+                      <a href="/blog?category={{ $item->category->slug }}" class="text-decoration-none text-white">
                           {{ $item->category->name }}
                       </a>    
                   </div>

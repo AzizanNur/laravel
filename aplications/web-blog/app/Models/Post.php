@@ -15,16 +15,19 @@ class Post extends Model
     protected $with = ['user', 'category'];//this used user eager load
 
     public function scopeFilter($query, array $filters){
-        // if(isset($filters['search']) ? $filters['search'] : false){
-        //     return $query->where('title', 'like', '%'.$filters['search'].'%')
-        //     ->orWhere('body', 'like', '%'.$filters['search'].'%');
-        // }
-
         //$filters['search'] ?? false -> this use null coalescing operator, this new fitur on php 7 and changed isset
         $query->when($filters['search'] ?? false, function($query, $search){
             return $query->where('title', 'like', '%'.$search.'%')
             ->orWhere('body', 'like', '%'.$search.'%');
         }); 
+
+        //this use join to search category when they are have text or body in search
+        $query->when($filters['category'] ?? false, function($query, $category){
+            return $query->whereHas('category', function($query) use ($category){ //'use' is define to use $category first, agar can use to below $category
+                $query->where('slug', $category);
+
+            });
+        });
     }
     
     public function category(){
