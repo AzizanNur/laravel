@@ -10,18 +10,11 @@ class PostController extends Controller
     public function index(){
         // dd(Request('search')); to cactch data in request url
 
-        //this example to get data from controller
-        $posts = Post::latest();
-        if(request('search')){
-            $posts->where('title', 'like', '%'.request('search').'%')
-            ->orWhere('body', 'like', '%'.request('search').'%');
-        }
-
         return view('posts', [
             "title" => "Data Posts",
             "active" => 'posts',
             // "posts" => Post::all() //this is collection datas
-            "posts" => $posts->get() //this to show latest post and user eager load
+            "posts" => Post::latest()->filter(request(['search']))->get() //this to show latest post and user eager load (with in model post), and filter from is scopeFilter in model post
         ]); 
     }
 
