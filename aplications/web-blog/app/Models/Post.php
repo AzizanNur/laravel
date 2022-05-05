@@ -15,10 +15,16 @@ class Post extends Model
     protected $with = ['user', 'category'];//this used user eager load
 
     public function scopeFilter($query, array $filters){
-        if(isset($filters['search']) ? $filters['search'] : false){
-            return $query->where('title', 'like', '%'.$filters['search'].'%')
-            ->orWhere('body', 'like', '%'.$filters['search'].'%');
-        }
+        // if(isset($filters['search']) ? $filters['search'] : false){
+        //     return $query->where('title', 'like', '%'.$filters['search'].'%')
+        //     ->orWhere('body', 'like', '%'.$filters['search'].'%');
+        // }
+
+        //$filters['search'] ?? false -> this use null coalescing operator, this new fitur on php 7 and changed isset
+        $query->when($filters['search'] ?? false, function($query, $search){
+            return $query->where('title', 'like', '%'.$search.'%')
+            ->orWhere('body', 'like', '%'.$search.'%');
+        }); 
     }
     
     public function category(){
