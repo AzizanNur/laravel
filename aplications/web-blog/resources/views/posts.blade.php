@@ -2,7 +2,18 @@
 
 @section('container')
 
-<h1>{{ $title }}</h1>
+<h1 class="mb-3 text-center">{{ $title }}</h1>
+
+<div class="row justify-content-center mb-3">
+  <div class="col-md-6">
+    <form action="/blog">
+      <div class="input-group mb-3">
+        <input type="text" value="{{ request('search') }}" class="form-control" placeholder="Search" aria-label="Recipient's username" name="search">
+        <button class="btn btn-danger" type="submit">Seach</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 @if ($posts->count())
   <div class="card mb-3">
@@ -16,32 +27,32 @@
       <a class='text-decoration-none btn btn-primary' href="/posts/{{ $posts[0]->slug }}">Read More</a>
     </div>
   </div>
+
+  <div class="container">
+      <div class="row">
+          @foreach ($posts->skip(1) as $item)
+          <div class="col-md-4 mb-3">
+              <div class="card">
+                  <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0,0,0,0.7)">
+                      <a href="/categories/{{ $item->category->slug }}" class="text-decoration-none text-white">
+                          {{ $item->category->name }}
+                      </a>    
+                  </div>
+                  <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ $item->title }}</h5>
+                    <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> {{ $item->created_at->diffForhumans() }}</p>
+                    <p class="card-text">{{ $item->excerpt }}</p>
+                    <a href="/posts/{{ $item->slug }}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+          </div>
+          @endforeach
+      </div>
+  </div>
+
 @else
   <p class="text-center fs-4">No Post Found.</p>
 @endif
-
-
-<div class="container">
-    <div class="row">
-        @foreach ($posts->skip(1) as $item)
-        <div class="col-md-4 mb-3">
-            <div class="card">
-                <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0,0,0,0.7)">
-                    <a href="/categories/{{ $item->category->slug }}" class="text-decoration-none text-white">
-                        {{ $item->category->name }}
-                    </a>    
-                </div>
-                <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="">
-                <div class="card-body">
-                  <h5 class="card-title">{{ $item->title }}</h5>
-                  <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> {{ $item->created_at->diffForhumans() }}</p>
-                  <p class="card-text">{{ $item->excerpt }}</p>
-                  <a href="/posts/{{ $item->slug }}" class="btn btn-primary">Read More</a>
-                </div>
-              </div>
-        </div>
-        @endforeach
-    </div>
-</div>
 
 @endsection
