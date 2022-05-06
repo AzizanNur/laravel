@@ -14,7 +14,7 @@ class PostController extends Controller
             "title" => "Data Posts",
             "active" => 'posts',
             // "posts" => Post::all() //this is collection datas
-            "posts" => Post::latest()->filter(request(['search', 'category']))->get() //this to show latest post and user eager load (with in model post), and filter from is scopeFilter in model post
+            "posts" => Post::latest()->filter(request(['search', 'category', 'user']))->get() //this to show latest post and user eager load (with in model post), and filter from is scopeFilter in model post
         ]); 
     }
 

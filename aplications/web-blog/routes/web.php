@@ -59,7 +59,8 @@ Route::get('/categories/', function(){
 Route::get('/user/', function(){
     return view('user', [
         'title' => 'Users',
-        'posts' => User::all()
+        'posts' => User::all(),
+        "active" => 'blog',
     ]);
 });
 

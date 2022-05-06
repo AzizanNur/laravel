@@ -12,6 +12,10 @@
         <input type="hidden" name="category" value="{{ request('category') }}">          
       @endif
 
+      @if (request('user'))
+        <input type="hidden" name="user" value="{{ request('user') }}">          
+      @endif
+
       <div class="input-group mb-3">
         <input type="text" value="{{ request('search') }}" class="form-control" placeholder="Search" aria-label="Recipient's username" name="search">
         <button class="btn btn-danger" type="submit">Seach</button>
@@ -26,7 +30,7 @@
     <div class="card-body text-center">
       <h5 class="card-title"><a href="/posts/{{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h5>
       <small class="text-muted">
-      <p>By. <a class='text-decoration-none' href="/user/{{ $posts[0]->user->slug }}">{{ $posts[0]->user->name }}</a> 
+      <p>By. <a class='text-decoration-none' href="blog?user={{ $posts[0]->user->slug }}">{{ $posts[0]->user->name }}</a> 
         in <a class='text-decoration-none' href="/blog?category={{ $posts[0]->category->slug }}">{{ $posts[0]->category->name }}</a> 
         {{ $posts[0]->created_at->diffForhumans() }}</p> 
       </small>
@@ -47,8 +51,8 @@
                   </div>
                   <img src="https://source.unsplash.com/500x400?{{ $item->category->name }}" class="card-img-top" alt="">
                   <div class="card-body">
-                    <h5 class="card-title">{{ $item->title }}</h5>
-                    <p>By. <a class='text-decoration-none' href="/user/{{ $item->user->slug }}">{{ $item->user->name }}</a> {{ $item->created_at->diffForhumans() }}</p>
+                    <h5 class="card-title"><a href="/posts/{{ $item->slug }}" class="text-decoration-none text-dark">{{ $item->title }}</a></h5>
+                    <p>By. <a class='text-decoration-none' href="blog?user={{ $item->user->slug }}">{{ $item->user->name }}</a> {{ $item->created_at->diffForhumans() }}</p>
                     <p class="card-text">{{ $item->excerpt }}</p>
                     <a href="/posts/{{ $item->slug }}" class="btn btn-primary">Read More</a>
                   </div>

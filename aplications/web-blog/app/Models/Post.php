@@ -28,6 +28,13 @@ class Post extends Model
 
             });
         });
+
+        //this use arrow function, if you used arrow funcition you not used 'use' in this function
+        $query->when($filters['user'] ?? false, fn($query, $user) =>
+            $query->whereHas('user', fn($query) =>
+                $query->where('slug', $user)
+            )
+        );
     }
     
     public function category(){
