@@ -41,13 +41,13 @@ Route::get('/blog', [PostController::class, 'index']);
 //halaman singel post
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/categories/{category:slug}', function(Category $category){
-    return view('posts', [
-        'title' => "Post By Category: $category->name",
-        "active" => 'categories',
-        'posts' => $category->posts->load('user', 'category'), //ini menggunakan lazy eager loading,
-    ]);
-});
+// Route::get('/categories/{category:slug}', function(Category $category){
+//     return view('posts', [
+//         'title' => "Post By Category: $category->name",
+//         "active" => 'categories',
+//         'posts' => $category->posts->load('user', 'category'), //ini menggunakan lazy eager loading,
+//     ]);
+// });
 Route::get('/categories/', function(){
     return view('user', [
         'title' => 'Post By Categories',
@@ -56,17 +56,17 @@ Route::get('/categories/', function(){
     ]);
 });
 
-Route::get('/user/', function(){
-    return view('user', [
-        'title' => 'Users',
-        'posts' => User::all(),
-        "active" => 'blog',
-    ]);
-});
+// Route::get('/user/', function(){
+//     return view('user', [
+//         'title' => 'Users',
+//         'posts' => User::all(),
+//         "active" => 'blog',
+//     ]);
+// });
 
-Route::get('/user/{user:slug}', function(User $user){
-    return view('posts', [
-        'title' => "Post By Author: $user->name",
-        'posts' => $user->posts->load('user', 'category'), //ini menggunakan lazy eager loading
-    ]);
-});
+// Route::get('/user/{user:slug}', function(User $user){
+//     return view('posts', [
+//         'title' => "Post By Author: $user->name",
+//         'posts' => $user->posts->load('user', 'category'), //ini menggunakan lazy eager loading
+//     ]);
+// });
