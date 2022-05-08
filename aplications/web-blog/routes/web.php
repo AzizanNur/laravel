@@ -9,6 +9,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,8 +75,12 @@ Route::get('/categories/', function(){
 // });
 
 //=======================================//
-Route::get('/login', [LoginController::class, 'index']);
-Route::get('/register', [RegisterController::class, 'index']);
+// LoginController
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest'); //only guest can access
+Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest'); //only guest can access
 Route::post('/register', [RegisterController::class, 'store']);
 
-// LoginController
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');//only user already login
