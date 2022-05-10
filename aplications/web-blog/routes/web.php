@@ -83,4 +83,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest'); //only guest can access
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');//only user already login
+// Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');//only user already login
+Route::get('/dashboard', function(){
+    return view('dashboard.index');
+})->middleware('auth');//only user already login
