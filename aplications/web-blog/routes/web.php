@@ -9,7 +9,7 @@ use App\Providers\RouteServiceProvider;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,15 +24,13 @@ use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('home', [
-        "title" => "home",
-        "active" => 'home',
+        "title" => "home",        
     ]);
 });
 
 Route::get('/about', function () {
     return view('about', [
         "title" => "about",
-        "active" => 'about',
         "name" => "azizan nur rohman",
         "email" => "azizan@kly.id",
         "image" => "azizan.png",
@@ -55,7 +53,6 @@ Route::get('/categories/', function(){
     return view('user', [
         'title' => 'Post By Categories',
         'posts' => Category::all(),
-        "active" => 'categories',
     ]);
 });
 
@@ -84,6 +81,9 @@ Route::get('/register', [RegisterController::class, 'index'])->middleware('guest
 Route::post('/register', [RegisterController::class, 'store']);
 
 // Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');//only user already login
+
 Route::get('/dashboard', function(){
     return view('dashboard.index');
 })->middleware('auth');//only user already login
+    
+Route::resource('/dashboard/posts', DashboardPostController::class);

@@ -44,5 +44,10 @@ class Post extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+    public function getRouteKeyName()
+    {   //this change rule select where id to select where slug
+        return 'slug';
+    }
 }
 
