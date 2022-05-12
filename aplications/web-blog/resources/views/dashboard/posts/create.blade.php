@@ -15,7 +15,7 @@
 
         <div class="mb-3">
           <label for="slug" class="form-label">Slug</label>
-          <input type="text" class="form-control" id="slug" name="slug">          
+          <input type="text" class="form-control" id="slug" name="slug" disabled readonly>          
         </div>
         
         <button type="submit" class="btn btn-primary">Create Post</button>
