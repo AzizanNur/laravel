@@ -6,6 +6,8 @@ use App\Models\Post;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Contracts\Support\ValidatedData;
+use Illuminate\Support\Str;
 
 class DashboardPostController extends Controller
 {
@@ -47,7 +49,13 @@ class DashboardPostController extends Controller
             'category_id' => 'required',
             'body' => 'required'
         ]);    
-            
+        
+        $validatedData['user_id'] = auth()->user()->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 20);
+
+        Post::create($validatedData);
+        return redirect('/dashboard/posts')->with('success', 'news post has been added');
+
     }
 
     /**
