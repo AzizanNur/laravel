@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
 
     //if meet MassAssignmentException
     // protected $fillable = ['title', 'exceprt', 'body']; //this to setting field allow to edit
@@ -48,6 +49,15 @@ class Post extends Model
     public function getRouteKeyName()
     {   //this change rule select where id to select where slug
         return 'slug';
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
     }
 }
 
