@@ -35,7 +35,7 @@
             </td> 
             </tr>             
         @empty
-         <tr> <td><p>Data belum ada</p></td></tr>
+         <tr> <td colspan="4"><p class="text-center">Data belum ada</p></td></tr>
         @endforelse 
       </tbody>
     </table>
