@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
         //     'password'=>bcrypt('12345')
         // ]);
 
-        // User::create([
-        //     'name'=>'azhar azizan al-fattaah',
-        //     'email'=>'azhar@gmail.com',
-        //     'slug'=>'azhar-azizan-al-fattaah',
-        //     'password'=>bcrypt('258')
-        // ]);
+        User::create([
+            'name'=>'azhar azizan al-fattaah',
+            'email'=>'azhar@gmail.com',
+            'slug'=>'azhar-azizan-al-fattaah',
+            'password'=>bcrypt('12345')
+        ]);
         
         
         // Post::create([

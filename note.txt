@@ -107,3 +107,9 @@ to use this issue is, you must install library ini laravel and broser,
 in laravel install 'composer require itsgoingd/clockwork'
 then use add-ons in browser search "Clockwork" and then install
 ===================================
+
+proses upload image
+- change .env
+- use script 'return $request->file('image')->store('post-images');'
+- install php artisan storage:link (because you mush link path storage with path public, that can use to access with users)
+- after you install storage:link, your path public can add folder storage, this connect from /storage to /public/storage

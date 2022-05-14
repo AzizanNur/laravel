@@ -24,7 +24,7 @@ class PostFactory extends Factory
                 })
                 ->implode(''),
             'category_id' => mt_rand(1,3),
-            'user_id' => mt_rand(1,3),
+            'user_id' => mt_rand(1,4),
         ];
     }
 }
