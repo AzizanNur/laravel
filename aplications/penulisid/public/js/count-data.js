@@ -1,0 +1,5 @@
+var DISQUSWIDGETS;
+
+if (typeof DISQUSWIDGETS != 'undefined') {
+    DISQUSWIDGETS.displayCount({"text":{"and":"and","comments":{"zero":"0 Comments","multiple":"{num} Comments","one":"1 Comment"}},"counts":[{"id":"1065 https:\/\/blog.penulis.id\/?p=1065","comments":0},{"id":"1029 https:\/\/blog.penulis.id\/?p=1029","comments":0},{"id":"1049 https:\/\/blog.penulis.id\/?p=1049","comments":0},{"id":"1025 https:\/\/blog.penulis.id\/?p=1025","comments":0},{"id":"1053 https:\/\/blog.penulis.id\/?p=1053","comments":0},{"id":"1036 https:\/\/blog.penulis.id\/?p=1036","comments":0},{"id":"1045 https:\/\/blog.penulis.id\/?p=1045","comments":0},{"id":"1057 https:\/\/blog.penulis.id\/?p=1057","comments":0},{"id":"1060 https:\/\/blog.penulis.id\/?p=1060","comments":0},{"id":"1040 https:\/\/blog.penulis.id\/?p=1040","comments":0}]});
+}
