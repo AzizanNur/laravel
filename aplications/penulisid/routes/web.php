@@ -18,3 +18,9 @@ Route::get('/', function () {
         "title" => "home",        
     ]);
 });
+
+Route::get('posts/{post:slug}', function(){
+    return view('post', [
+        "title" => "home",        
+    ]);
+});
