@@ -4,6 +4,11 @@ latest token to github is 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
 ubuntu 20.04
 
 ===========================================================
+
+install laravel with version
+composer create-project laravel/laravel:^8.0 example-app
+
+===========================================================
 path mvc
 m = \app\Models\User.php
 v = \resources\views\welcome.blade.php (kenapa ada .blade nya karena ini pakai engine view nya laravel)
