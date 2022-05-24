@@ -99,6 +99,9 @@ activated this line -> \App\Models\User::factory(10)->create();
 php artisan db:seed -> to add data dummy can this add to database us
 php artisan migrate:fresh --seed -> this 2 function's run, first run migrate to fresh migrate, and second's to fill data dummy into database
 
+==================================
+Cara buat controller dengan resources dan connect db / model
+php artisan make:controller PhotoController --model=Photo --resource
 
 ==================================
 
