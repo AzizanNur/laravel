@@ -15,17 +15,20 @@
         </li>
       </ul>
 
-      <h6 class="sidebar-heading d-flex justify-centent-between align-items-center px-3 mt-4 mb-1 text-muted">
-        <span>Adminisrator</span>
-      </h6>
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : ''}}" aria-current="page" href="/dashboard/categories">
-            <span data-feather="grid"></span>
-            Post Categories
-          </a>
-        </li>
-      </ul>
+      {{-- @can is connect to your gate, and used name @can with your define gate--}}
+      @can('admin') 
+        <h6 class="sidebar-heading d-flex justify-centent-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Adminisrator</span>
+        </h6>
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/categories*') ? 'active' : ''}}" aria-current="page" href="/dashboard/categories">
+              <span data-feather="grid"></span>
+              Post Categories
+            </a>
+          </li>
+        </ul>
+      @endcan
 
     </div>
   </nav>
