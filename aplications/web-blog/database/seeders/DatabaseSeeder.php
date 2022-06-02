@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
             'name'=>'azhar azizan al-fattaah',
             'email'=>'azhar@gmail.com',
             'slug'=>'azhar-azizan-al-fattaah',
-            'password'=>bcrypt('12345')
+            'password'=>bcrypt('12345'),
+            'username'=>'azhar',
+            'is_admin'=>1,
         ]);
         
         
