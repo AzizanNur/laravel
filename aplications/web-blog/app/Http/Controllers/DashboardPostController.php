@@ -51,7 +51,7 @@ class DashboardPostController extends Controller
             'body' => 'required',
             'image' => 'image|file|max:1024'
         ]);    
-        dd($request);
+        // dd($request);
         $validatedData['user_id'] = auth()->user()->id;
         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 20);
         
@@ -127,7 +127,8 @@ class DashboardPostController extends Controller
             if($post->image){
                 Storage::delete($post->image);
             }
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            // $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = Storage::disk('public')->put('uploads/', $request->file('image'));;
         }
 
         $validatedData['user_id'] = auth()->user()->id;
