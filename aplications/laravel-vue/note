@@ -1,0 +1,5 @@
+how to integrated laravel with vue
+- login in directory project
+- install = composer require laravel/ui --dev
+- install vue = php artisan ui vue
+- install npm = npm install (pengecekan jika sudah ada di install npm jalankan "npm run watch")
