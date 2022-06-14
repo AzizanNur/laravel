@@ -5424,7 +5424,10 @@ Vue.component('example-component', (__webpack_require__(/*! ./components/Example
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    message: 'halo world'
+  }
 });
 
 /***/ }),
@@ -28016,9 +28019,10 @@ var staticRenderFns = [
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
               _vm._v(
-                "\n                    I'm an example component.\n                "
+                "\n                    I'm an example component.                        \n                "
               ),
             ]),
+            _vm._v("\n                Hello World!!\n            "),
           ]),
         ]),
       ]),

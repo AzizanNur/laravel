@@ -3,3 +3,10 @@ how to integrated laravel with vue
 - install = composer require laravel/ui --dev
 - install vue = php artisan ui vue
 - install npm = npm install (pengecekan jika sudah ada di install npm jalankan "npm run watch")
+
+--------------------------
+try to install admin lte3
+
+- npm install admin-lte@v3.0.0-alpha.2 --save
+- npm install @fortawesome/fontawesome-free
+- 
