@@ -7,7 +7,7 @@
                     <div class="card-body">
                         I'm an example component.                        
                     </div>
-                    Hello World!!
+                    Hello World ini halaman vue js!!
                 </div>
             </div>
         </div>
