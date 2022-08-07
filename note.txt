@@ -169,3 +169,12 @@ this to add field to table in database
 - php artisan migrate
 - if you want to drop your colomn you can write
 	php artisan migrate:rollback
+
+==============================================
+note to crud in tag article
+- setting model = php artisan make:model -m Tag (use to single word not many word, ex: 'tag' not to 'tags'
+- setting migrations
+- setting cli migrations = php atisan migrate
+- build controller: php artisan make:controller AdminTagController --model=Tag --resource
+- setting routes 
+- setting controller to show in FE
