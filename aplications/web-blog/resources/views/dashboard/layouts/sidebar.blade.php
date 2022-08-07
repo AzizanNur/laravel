@@ -27,6 +27,12 @@
               Post Categories
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link {{ Request::is('dashboard/tags*') ? 'active' : ''}}" aria-current="page" href="/dashboard/tags">
+              <span data-feather="grid"></span>
+              Post Tags
+            </a>
+          </li>
         </ul>
       @endcan
 
