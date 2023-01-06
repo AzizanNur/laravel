@@ -10,6 +10,12 @@ composer create-project laravel/laravel:^8.0 example-app
 composer create-project --prefer-dist laravel/laravel:^8.0 test3
 composer create-project --prefer-dist laravel/laravel:9.0.0 ver900 //note this use webpack.mix.js not use vite.config.js
 
+cara membuat factory
+php artisan make:factory PostFactory
+
+Cara buat controller dengan resources dan connect db / model
+php artisan make:controller PhotoController --model=Photo --resource
+
 ===========================================================
 path mvc
 m = \app\Models\User.php
@@ -102,15 +108,7 @@ php artisan db:seed -> to add data dummy can this add to database us
 php artisan migrate:fresh --seed -> this 2 function's run, first run migrate to fresh migrate, and second's to fill data dummy into database
 
 ==================================
-Cara buat controller dengan resources dan connect db / model
-php artisan make:controller PhotoController --model=Photo --resource
 
-==================================
-
-cara membuat factory
-php artisan make:factory PostFactory
-
-====================================
 N + 1 problem
 - he N+1 query problem happens when your code executes N additional query statements to fetch the same data that could have been retrieved when executing the primary query.
 to use this issue is, you must install library ini laravel and broser,
